@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Stop Apache & MySQL"
+echo "Stoping Apache & MySQL"
 sudo /opt/lampp/lampp stopapache
 sudo /opt/lampp/lampp stopmysql
 
