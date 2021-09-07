@@ -8,7 +8,7 @@ brave chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc/index.html &
 bash /home/korn/git/linux-stuffs/credential/password.sh &
 
 # Type Password
-sleep 1
+sleep 1.5
 xdotool getactivewindow key ctrl+v &
 sleep 0.5
 xdotool getactivewindow key Enter &
