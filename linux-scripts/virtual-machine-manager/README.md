@@ -1,7 +1,5 @@
 ## วิธีขยาย/เพิ่มขนาด Virtual Machine disk size
 
-* * *
-
 ### ปิด Virtual Machine ก่อน
 
 ก่อนที่จะขยาย/เพิ่มขนาด disk ต้องปิด Virtual Machine ก่อน
