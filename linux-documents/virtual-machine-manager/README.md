@@ -89,7 +89,7 @@ $ sudo virsh start windows-10
 
 ของผมจะมีที่มาขวางคือ `'500 MB Healthy (Recovery Parition)'` ซึ่งเป็น Partition ที่ไม่สำคัญมาก จึงให้ทำการลบในขั้นตอนต่อไป
 
-ถ้าหากไม่พบ Partition ที่ขวางพื้นที่ว่างให้ข้ามไปขั้นตอนที่ 6 ได้เลย [ขั้นตอนที่ 6](###ขั้นตอนที่-6-:-ขยาย-partition-ที่ต้องการไปยังพื้นที่ว่างใหม่)
+ถ้าหากไม่พบ Partition ที่ขวางพื้นที่ว่างให้ข้ามไปขั้นตอนที่ 6 ได้เลย
 
 ![Partition Resize Instruction 2](pictures/partition-resize-2.png)
 
