@@ -5,7 +5,7 @@
 ก่อนที่จะขยาย/เพิ่มขนาด disk ต้องปิด Virtual Machine ก่อน
 
 ``` console
-$ sudo virsh list
+sudo virsh list
   Id   Name         State
  ----------------------------
   4    windows-10   running
@@ -14,14 +14,14 @@ $ sudo virsh list
 ถ้า Guest Machine ยังทำงานอยู่ ให้ปิดโดยใช้ Id หรือ Name ของมัน
 
 ``` console
-$ sudo virsh shutdown windows-10
+sudo virsh shutdown windows-10
  Domain 'windows-10' is being shutdown
 ```
 
 เช็คอีกรอบให้แน่ใจก่อนจะจัดการกับ disk ของมัน
 
 ``` console
-$ sudo virsh list
+sudo virsh list
   Id   Name         State
  ----------------------------
 ```
@@ -31,7 +31,7 @@ $ sudo virsh list
 หา Path ของ Guest OS disk
 
 ``` console
-$ sudo virsh domblklist windows-10
+sudo virsh domblklist windows-10
  Target   Source
 ----------------------------------------------------
  sda      /var/lib/libvirt/images/windows-10.qcow2
@@ -44,7 +44,7 @@ Path ของ Guest OS disk ผมอยู่ที่ `/var/lib/libvirt/image
 มาดูข้อมูลของ Guest OS disk กัน
 
 ``` console
-$ sudo qemu-img info /var/lib/libvirt/images/windows-10.qcow2
+sudo qemu-img info /var/lib/libvirt/images/windows-10.qcow2
  image: /var/lib/libvirt/images/windows-10.qcow2
  file format: qcow2
  virtual size: 40 GiB (42949672960 bytes)
@@ -66,7 +66,7 @@ $ sudo qemu-img info /var/lib/libvirt/images/windows-10.qcow2
 โดยเราจะใช้เครื่องหมาย `"+"` ไว้ข้างหน้าขนาดที่เราต้องการเพิ่ม
 
 ``` console
-$ sudo qemu-img resize /var/lib/libvirt/images/windows-10.qcow2 +50G
+sudo qemu-img resize /var/lib/libvirt/images/windows-10.qcow2 +50G
  Image resized.
 ```
 
@@ -75,7 +75,7 @@ $ sudo qemu-img resize /var/lib/libvirt/images/windows-10.qcow2 +50G
 คราวนี้ให้เริ่มการทำงาน VM
 
 ``` console
-$ sudo virsh start windows-10
+sudo virsh start windows-10
  Domain 'windows-10' started.
 ```
 
@@ -100,13 +100,13 @@ $ sudo virsh start windows-10
 จากนั้นพิมพ์คำสั่ง diskpart เพื่อใช้งาน โปรแกรม DiskPart
 
 ``` console
-$ diskpart
+diskpart
 ```
 
 เมื่อเข้ามาใน DiskPart เราจะมาดู Disk ที่มีทั้งหมด
 
 ``` console
-$ list disk
+list disk
  Disk ###  Status         Size     Free     Dyn  Gpt
  --------  -------------  -------  -------  ---  ---
  Disk 0    Online           90 GB
@@ -115,14 +115,14 @@ $ list disk
 จะเห็นว่า ของผมจะมี `'Disk 0'` ผมจึงจะเลือก Disk 0 โดยเลือกจาก Id คือ 0
 
 ``` console
-$ select disk 0
+select disk 0
  Disk 0 is now the selected disk.
 ```
 
 จากนั้นเราจะมาดู Partition ที่มีทั้งหมดใน Disk
 
 ``` console
-$ list partition
+list partition
  Partition ###  Type             Size     Offset
  -------------  ---------------- -------  -------
  Partition 1    Primary            50 MB  1024 KB
@@ -133,14 +133,14 @@ $ list partition
 จะเห็นได้ว่า Partition ที่ขวางอยู่ ชื่อว่า `'Recovery'` ผมจึงเลือกจาก Id คือ 3
 
 ``` console
-$ select partition 3
+select partition 3
  Partition 3 is now the selected partition.
 ```
 
 จากนั้นเราก็ลบ Partition ที่เราเลือกได้เลย
 
 ``` console
-$ delete partition override
+delete partition override
  DiskPart successfully deleted the selected partition.
 ```
 
