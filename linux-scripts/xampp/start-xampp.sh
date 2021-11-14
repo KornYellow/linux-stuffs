@@ -1,8 +1,9 @@
 #!/bin/bash
 
-echo "Starting Apache & MySQL"
+# Start XAMPP
 sudo /opt/lampp/lampp startapache
 sudo /opt/lampp/lampp startmysql
 
-echo "Started Apache & MySQL"
-sleep 5
+# Notification
+notify-send -t 2000 -i xampp "XAMPP" "Started"
+

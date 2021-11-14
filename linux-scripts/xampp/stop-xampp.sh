@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "Stoping Apache & MySQL"
+# Stop XAMPP
 sudo /opt/lampp/lampp stopapache
 sudo /opt/lampp/lampp stopmysql
 
-echo "Stopped Apache & MySQL"
-sleep 5
+# Notification
+notify-send -t 2000 -i xampp "XAMPP" "Stopped"
