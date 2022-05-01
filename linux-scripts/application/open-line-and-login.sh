@@ -9,6 +9,9 @@ bash /home/korn/git/linux-stuffs/credential/password.sh &
 
 # Type Password
 sleep 1.5
-xdotool getactivewindow key ctrl+v &
+xdotool getactivewindow key --clearmodifiers ctrl+v &
 sleep 0.5
-xdotool getactivewindow key Enter &
+xdotool getactivewindow key --clearmodifiers Enter &
+
+# Reset Clipboard
+echo -n '' | xclip -select clipboard
