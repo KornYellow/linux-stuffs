@@ -9,7 +9,7 @@ sleep 0.5
 bash /home/korn/git/linux-stuffs/credential/password.sh &
 
 # Type Password
-sleep 0.5
+sleep 2
 xdotool getactivewindow key --clearmodifiers ctrl+v &
 sleep 0.5
 xdotool getactivewindow key --clearmodifiers Enter &
